@@ -1,0 +1,127 @@
+/* Import the Figtree font from Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Figtree:wght@600;800&display=swap');
+
+/* Define CSS Variables for easy maintenance */
+:root {
+    /* Colors from Figma */
+    --clr-primary-yellow: hsl(47, 88%, 63%);
+    --clr-neutral-white: hsl(0, 0%, 100%);
+    --clr-neutral-gray: hsl(0, 0%, 50%);
+    --clr-neutral-black: hsl(0, 0%, 7%);
+
+    /* Typography from Figma and style-guide */
+    --ff-primary: 'Figtree', sans-serif;
+    --fw-semi-bold: 600;
+    --fw-extra-bold: 800;
+
+    /* Font Size Scaling (for mobile-first without media queries) */
+    /* This will scale from 14px on a 375px viewport to 16px on a 1440px viewport */
+    font-size: clamp(0.875rem, 0.825rem + 0.238vw, 1rem); 
+}
+
+/* Basic reset for consistent styling */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--clr-primary-yellow);
+    font-family: var(--ff-primary);
+    line-height: 1.5; /* Default line height for better readability */
+
+    /* Flexbox for centering the card on the page */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 1.5rem; /* Add some padding for smaller screens */
+}
+
+/* Styles for the main card container */
+.blog-card {
+    background-color: var(--clr-neutral-white);
+    max-width: 384px;
+    border: 1px solid var(--clr-neutral-black);
+    border-radius: 20px;
+    box-shadow: 8px 8px 0px var(--clr-neutral-black); /* The box shadow has an offset */
+    overflow: hidden; /* Ensures the image doesn't overflow the rounded corners */
+}
+
+.blog-card .card-image {
+    display: block; /* Removes extra space below the image */
+    width: 100%;
+    border-radius: 10px;
+}
+
+.card-content {
+    padding: 1.5rem; /* 24px padding on all sides */
+    display: grid;
+    gap: 0.75rem; /* 12px gap between content items */
+}
+
+/* Styles for the "Learning" tag */
+.tag {
+    background-color: var(--clr-primary-yellow);
+    color: var(--clr-neutral-black);
+    font-weight: var(--fw-extra-bold);
+    font-size: 0.875rem; /* 14px font size */
+    padding: 0.25rem 0.75rem; /* 4px vertical, 12px horizontal */
+    border-radius: 4px;
+    width: fit-content; /* Makes the background only as wide as the text */
+}
+
+/* Styles for the publish date */
+.publish-date {
+    font-size: 0.75rem; /* 12px font size */
+    font-weight: var(--fw-semi-bold);
+    color: var(--clr-neutral-black);
+}
+
+/* Styles for the main title */
+.card-title {
+    font-weight: var(--fw-extra-bold);
+    font-size: 1.5rem; /* 24px font size */
+    color: var(--clr-neutral-black);
+    line-height: 1; /* Tighter line height for the title */
+}
+
+.card-title a {
+    text-decoration: none; /* Removes underline from the link */
+    color: inherit; /* Inherits the color from the parent h1 */
+}
+
+/* Hover state for the interactive title */
+.card-title a:hover,
+.card-title a:focus {
+    color: var(--clr-primary-yellow);
+}
+
+/* Styles for the body copy */
+.card-description {
+    font-size: 1rem; /* 16px font size */
+    color: var(--clr-neutral-gray);
+    line-height: 1.5;
+    margin-top: 0.25rem; /* Small space between the title and description */
+}
+
+/* Styles for the author section */
+.author-info {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem; /* 12px gap between the avatar and name */
+    margin-top: 1rem; /* 16px space above the author section */
+}
+
+.author-info .author-avatar {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%; /* Makes the image a perfect circle */
+}
+
+.author-name {
+    font-weight: var(--fw-extra-bold);
+    font-size: 0.875rem; /* 14px font size */
+    color: var(--clr-neutral-black);
+}
